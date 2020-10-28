@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="register">
+	<h1>Bienvenido a Zafiro</h1>
+	
+	<div class="links">
+		<a style="color: #343A40;" href="{{ url_for('about') }}">Ingresa</a>
+		<a style="color: #343A40;" href="{{ url_for('register') }}" class="active">Registrate</a>
+	</div>
+	<form action="/" onsubmit="exito()" method="get" autocomplete="off">
+		<label for="name">
+			<i class="fas fa-user-edit"></i>
+		</label>
+		<input type="text" name="name" pattern="([a-zA-Z]+\s){1,}([a-zA-Z]+)" minlength="3" maxlength="30" placeholder="Nombre" id="name" required>
+		<label for="direccion">
+			<i class="fas fa-home"></i>
+		</label>
+		<input type="text" name="direccion" pattern="([a-zA-Z0-9-]+\s){1,}([a-zA-Z0-9-]+)" minlength="3" maxlength="50" placeholder="Dirección" id="direccion" required>
+		<label for="rut">
+			<i class="fas fa-user-alt"></i>
+		</label>
+		<input type="rut" name="rut" oninput="checkRut(this)" minlength="8" placeholder="Rut" id="rut" required>
+		<label for="username">
+			<i class="fas fa-user"></i>
+		</label>
+		<input type="text" name="username" pattern="[a-zA-Z0-9-]+" minlength="3" maxlength="20" placeholder="Username" id="username" required>
+		<label for="password">
+			<i class="fas fa-lock"></i>
+		</label>
+		<input type="password" name="password" maxlength="30" placeholder="Password" id="password" required>
+		<label for="email">
+			<i class="fas fa-envelope"></i>
+		</label>
+		<input type="email" name="email" placeholder="Email" id="email" required>
+		<div class="msg">{{ msg }}</div>
+		<input style="background-color: #343A40;" type="submit" value="Registro">
+	</form>
+</div>
+
+{% endblock %}

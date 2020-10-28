@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script>
+	function exito(){
+		window.alert("Registro exitoso.");
+	}
+</script>
+<div class="login">
+    <h1>Bienvenido a Zafiro</h1>
+
+    <div class="links">
+        <a style="color: #343A40;" href="{{ url_for('about') }}" class="active">Ingresa</a>
+        <a style="color: #343A40;" href="{{ url_for('register') }}">Registrate</a>
+    </div>
+    <form action="/" onsubmit="exito()" method="get" method="post">
+        <label for="username">
+            <i  class="fas fa-user"></i>
+        </label>
+        <input type="text" name="username" placeholder="Username" id="username" required>
+        <label for="password">
+            <i class="fas fa-lock"></i>
+        </label>
+        <input type="password" name="password" placeholder="Password" id="password" required>
+        <div class="msg">{{ msg }}</div>
+        <input style="background-color: #343A40;" type="submit" value="Login">
+    </form>
+</div>
+{% endblock %}
