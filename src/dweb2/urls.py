@@ -19,6 +19,7 @@ from poleras import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home.html')
-
+    path('', views.home, name='home.html'),
+    path('about', views.about, name='about.html'),
+    path('register', views.register, name='register.html')
 ]
