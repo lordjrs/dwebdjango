@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 def login(request):
     context={
-
+        'form':CustomUserForm()
     }
     return render(request, "login.html", context)
 

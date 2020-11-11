@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'poleras',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'dweb2.urls'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -126,3 +128,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     #'/var/www/static/',
 ]
+
+STATIC_ROOT=BASE_DIR.joinpath("static_env","static_root")
