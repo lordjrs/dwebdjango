@@ -10,10 +10,11 @@
     <h1>Bienvenido a Zafiro</h1>
 
     <div class="links">
-        <a style="color: #343A40;" href="{{ 'about' }}" class="active">Ingresa</a>
-        <a style="color: #343A40;" href="{{ 'register' }}">Registrate</a>
+        <a style="color: #343A40;" href="{% url 'login' %}" class="active">Ingresa</a>
+        <a style="color: #343A40;" href="{% url 'registrar' %}">Registrate</a>
     </div>
-    <form action="/" onsubmit="exito()" method="get" method="post">
+    <form action="" onsubmit="exito()" method="POST">
+    {% csrf_token %}
         <label for="username">
             <i  class="fas fa-user"></i>
         </label>

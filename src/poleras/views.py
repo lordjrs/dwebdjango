@@ -1,12 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Producto
+from .forms import CustomUserForm
+from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
 
-def about(request):
+def login(request):
     context={
 
     }
-    return render(request, "about.html", context)
+    return render(request, "login.html", context)
 
 def carrito(request):
     context={
@@ -26,8 +29,9 @@ def layout(request):
     }
     return render(request, "layout.html", context)
 
-def register(request):
-    context={
+def registrar(request):
+    context = {
+        'form':CustomUserForm()
 
     }
-    return render(request, "register.html", context)
+    return render(request, 'registration/registrar.html')
