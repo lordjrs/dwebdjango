@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Producto
 from .forms import CustomUserForm
 from django.contrib.auth.decorators import login_required, permission_required
-
+from django.contrib.auth import login, authenticate
 # Create your views here.
 
-def login(request):
+def login_user(request):
     context={
         'form':CustomUserForm()
     }
@@ -34,4 +34,15 @@ def registrar(request):
         'form':CustomUserForm()
 
     }
-    return render(request, 'registration/registrar.html')
+
+    if request.method == 'POST':
+        formulario = CustomUserForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            #
+            username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect(to='home')
+    return render(request, 'registration/registrar.html',context)

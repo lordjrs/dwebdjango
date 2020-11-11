@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
-
-{% block content %}
 {% csrf_token %}
+{% block content %}
 <div class="register">
 	<h1>Bienvenido a Zafiro</h1>
 	
@@ -9,7 +8,7 @@
 		<a style="color: #343A40;" href="{% url 'login' %}">Ingresa</a>
 		<a style="color: #343A40;" href="{% url 'registrar' %}" class="active">Registrate</a>
 	</div>
-	<form action="/" onsubmit="exito()" method="get" autocomplete="off">
+	<form  onsubmit="exito()" method="POST" >{% csrf_token %}>
 		<label for="name">
 			<i class="fas fa-user-edit"></i>
 		</label>
