@@ -32,7 +32,6 @@ def layout(request):
 def registrar(request):
     context = {
         'form':CustomUserForm()
-
     }
 
     if request.method == 'POST':

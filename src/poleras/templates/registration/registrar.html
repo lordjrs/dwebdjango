@@ -8,7 +8,8 @@
 		<a style="color: #343A40;" href="{% url 'login' %}">Ingresa</a>
 		<a style="color: #343A40;" href="{% url 'registrar' %}" class="active">Registrate</a>
 	</div>
-	<form  onsubmit="exito()" method="POST" >{% csrf_token %}>
+	<form action="" onsubmit="exito()" method="POST">
+	{% csrf_token %}
 		<label for="name">
 			<i class="fas fa-user-edit"></i>
 		</label>
@@ -28,7 +29,20 @@
 		<label for="password">
 			<i class="fas fa-lock"></i>
 		</label>
-		<input type="password" name="password" maxlength="30" placeholder="Password" id="password" required>
+		<input type="password" name="password1" maxlength="30" placeholder="Contraseña" id="password1" required>
+		<label for="password">
+			<i class="fas fa-lock"></i>
+		</label>
+		<input type="password" name="password2" maxlength="30" placeholder="Repetir contraseña" id="password2" oninput="check(this)" required>
+		<script language='javascript' type='text/javascript'>
+			function check(input) {
+				if (input.value != document.getElementById('password1').value) {
+					input.setCustomValidity('Las contraseñas deben ser iguales.');
+				} else {
+					input.setCustomValidity('');
+				}
+			}
+		</script>
 		<label for="email">
 			<i class="fas fa-envelope"></i>
 		</label>
