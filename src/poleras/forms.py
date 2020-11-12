@@ -8,4 +8,9 @@ from django.contrib.auth.models import User
 class CustomUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name','username', 'password1', 'password2', 'email']
+        fields = ['first_name', 'username', 'password1', 'password2', 'email']
+
+class Comprar(ModelForm):
+    class Meta:
+        model  = Producto
+        fields = ['nombre']

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Producto
-from .forms import CustomUserForm
+from .forms import CustomUserForm,Comprar
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 # Create your views here.
@@ -12,9 +12,15 @@ def login_user(request):
     return render(request, "login.html", context)
 
 def carrito(request):
-    context={
+    context = {
+        'form':Comprar()
 
     }
+    if request.method == 'POST':
+        formulario = Comprar(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            context['mensaje'] = "Guardado correctamente"
     return render(request, "Carrito.html", context)
 
 def home(request):
