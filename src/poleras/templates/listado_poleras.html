@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<h1>Listado de poleras</h1>
+
+<table>
+    <tr>
+        <th>Número Id.</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+    </tr>
+
+    {% for p in producto %}
+    <tr>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.precio }}</td>
+        <td>{{ p.id }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock  %}

@@ -51,3 +51,10 @@ def registrar(request):
             login(request, user)
             return redirect(to='home')
     return render(request, 'registration/registrar.html',context)
+
+def listado_poleras(request):
+    productos = Producto.objects.all()
+    context={
+        'producto':productos
+    }
+    return render(request, "listado_poleras.html" ,context)
