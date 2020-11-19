@@ -26,5 +26,8 @@
         <div class="msg">{{ msg }}</div>
         <input style="background-color: #343A40;" type="submit" value="Login">
     </form>
+    
+	<p>O ingresa con<a href="{% url 'social:begin' 'facebook' %}">Facebook</a></p>
 </div>
+
 {% endblock %}
